@@ -4,3 +4,4 @@ This project is the documentation for the OMS External API calls used to pull da
 
 ## Table of Contents
 * [notesDispoExport](docs/notesDispoExport.md)
+* [notesCorpsDispoExpor](docs/notesCorpsDispoExport.md)

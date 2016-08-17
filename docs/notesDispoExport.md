@@ -37,6 +37,7 @@ The response is a JSON-formmatted response that includes a success flag (true/fa
     "data": {
         "totalCount": 1008,
         "objects": [
+            ...,
             {
                 "action": "UPDATE",
                 "altAddress1": null,

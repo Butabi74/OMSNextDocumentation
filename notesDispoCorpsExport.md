@@ -11,6 +11,7 @@ To get all objects for a specified territory
 
 To get all OMS territories:
 >GET mvc/api/oms/ext/notesDispoExport/`compareDate`
+
 ---
 ## Parameters
 `compareDate` The previous date for the basis of the comparison.  The date should be formatted yyyy-MM-dd (ie, 2016-01-01).

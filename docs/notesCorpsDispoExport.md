@@ -1,30 +1,47 @@
-[Description](#description) [API](#api) [Parameters](#parameters) [Response](#response) [Sample](#sample-response)
+[API](#api) [Parameters](#parameters) [Response](#response) [Example](#example)
 # notesCorpsDispoExport
-
-## Description
 This function provides a list of unit (ministry and location) records where the contact info and/or appointed officers have changed between the specified dates.
 
 ---
 ## API
-To get all objects for a specified territory
->GET mvc/api/oms/ext/notesCorpsDispoExport/`compareDate`/`territoryId`
+_Required Headers_
+>Accept: application/json  
+Authorization: Basic xyz...
 
-To get all OMS territories:
+To get all objects for a specified territory
+>GET mvc/api/oms/ext/notesCorpsDispoExport/`compareDate`/`territoryId`  
+
+To get all objects for all OMS territories
 >GET mvc/api/oms/ext/notesCorpsDispoExport/`compareDate`
 
 ---
 ## Parameters
-`compareDate` The previous date for the basis of the comparison.  The date should be formatted yyyy-MM-dd (ie, 2016-01-01).
+`compareDate` _date_  
+The previous date for the basis of the comparison.  The date should be formatted yyyy-MM-dd (ie, 2016-01-01).
 
-`territoryId` An integer value for the requested territory.
+`territoryId` _integer_  
+The ID of the requested territory.
 
 ---
 ## Response
+>Content-Type: application/json
+
 The response is a JSON-formmatted response that includes a success flag (true/false) and a data array containing the objects with the unit contact and appointed person info.
 
+Status||Likely Reason
+---|---|---
+200|OK|
+500|INTERNAL SERVER ERROR|An invalid argument was passed to the API call or the date value was not formatted correctly
+
 ---
-## Sample Response
-```
+## Example
+Retrieve the list of corps contact info that has changed since 3/01/2016 for territory with ID = 55.
+
+_Request_
+>GET https://omsapi.fake.url/mvc/api/oms/ext/notesCorpsDispoExport/2016-03-01/55
+
+_Response_  
+```json
 {
   "success": true,
   "data": {

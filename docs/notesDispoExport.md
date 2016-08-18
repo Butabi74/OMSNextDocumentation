@@ -1,26 +1,37 @@
-[Description](#description) [API](#api) [Parameters](#parameters) [Response](#response) [Sample](#sample-response)
+[API](#api) [Parameters](#parameters) [Response](#response) [Example](#example)
 # notesDispoExport
-
-## Description
 This function provides a list of officer records whose appointments have changed between the specified dates including officers who have been commissioned (new appointment), transferred (end one appointment and start another), and retired/case closed/PTG (end appointment).  Data includes basic person, officer, appointment, and contact info.
 
 ---
 ## API
+_Required Headers_
+>Accept: application/json  
+Authorization: Basic xyz...
+
 To get all objects for a specified territory
 >GET mvc/api/oms/ext/notesDispoExport/`compareDate`/`territoryId`
 
-To get all OMS territories:
+To get all objects for all OMS territories
 >GET mvc/api/oms/ext/notesDispoExport/`compareDate`
 
 ---
 ## Parameters
-`compareDate` The previous date for the basis of the comparison.  The date should be formatted yyyy-MM-dd (ie, 2016-01-01).
+`compareDate` _date_  
+The previous date for the basis of the comparison.  The date should be formatted yyyy-MM-dd (ie, 2016-01-01).
 
-`territoryId` An integer value for the requested territory.
+`territoryId` _integer_  
+The ID of the requested territory.
 
 ---
 ## Response
+>Content-Type: application/json
+
 The response is a JSON-formmatted response that includes a success flag (true/false) and a data array containing the objects with the officer, appointment, and contact info.
+
+Status||Likely Reason
+---|---|---
+200|OK|
+500|INTERNAL SERVER ERROR|An invalid argument was passed to the API call or the date value was not formatted correctly
 
 *Notes*
 * **action** This is either UPDATE or DELETE for all objects.  UPDATE indicates the person or position was changed because a new appointment was created or an existing appointment was changed.  DELETE indicates the position or person are no longer associated by an appointment record. 
@@ -30,8 +41,14 @@ The response is a JSON-formmatted response that includes a success flag (true/fa
 * **fkAppointment** The unique appointment ID within the system.  This will be consistent across all calls to the API.
 
 ---
-## Sample Response
-```
+## Example
+Retrieve the list of persons and positions that have had updated appointments since 3/01/2016 for territory with ID = 55.
+
+_Request_
+>GET https://omsapi.fake.url/mvc/api/oms/ext/notesDispoExport/2016-03-01/55
+
+_Response_
+```json
 {
     "success": true,
     "data": {

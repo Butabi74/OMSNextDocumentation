@@ -1,5 +1,4 @@
-[TOC](#../README.md)|[Request](#request)|[Parameters](#parameters)|[Response](#response)|[Returns](#returns)|[Example](#example)  
----|---|---|---|---|---
+### [TOC](../README.md) | [Request](#request) | [Parameters](#parameters) | [Response](#response) | [Returns](#returns) | [Example](#example)  
 
 # notesCorpsDispoExport
 This function provides a list of unit (ministry and location) records where the contact info and/or appointed officers have changed between the specified dates.

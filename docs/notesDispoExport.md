@@ -1,4 +1,8 @@
-[Request](#request) [Parameters](#parameters) [Response](#response) [Returns](#returns) [Example](#example)
+[Request](#request) 
+[Parameters](#parameters) 
+[Response](#response) 
+[Returns](#returns) 
+[Example](#example)  
 # notesDispoExport
 This function provides a list of officer records whose appointments have changed between the specified dates including officers who have been commissioned (new appointment), transferred (end one appointment and start another), and retired/case closed/PTG (end appointment).  Data includes basic person, officer, appointment, and contact info.
 

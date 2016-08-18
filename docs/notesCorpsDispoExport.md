@@ -28,17 +28,17 @@ The ID of the requested territory.
 
 The response is a JSON-formmatted response that includes a success flag (true/false) and a data array containing the objects with the unit contact and appointed person info.
 
-Status||Likely Reason
----|---|---
-200|OK|
-500|INTERNAL SERVER ERROR|An invalid argument was passed to the API call or the date value was not formatted correctly
+Status Code|Likely Reason
+---|---
+200 OK|
+500 INTERNAL SERVER ERROR|An invalid argument was passed to the API call or the date value was not formatted correctly
 
 ---
 ## Example
 Retrieve the list of corps contact info that has changed since 3/01/2016 for territory with ID = 55.
 
 _Request_
->GET https://omsapi.fake.url/mvc/api/oms/ext/notesCorpsDispoExport/2016-03-01/55
+>GET mvc/api/oms/ext/notesCorpsDispoExport/2016-03-01/55
 
 _Response_  
 ```json

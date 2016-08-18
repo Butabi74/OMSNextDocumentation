@@ -28,10 +28,10 @@ The ID of the requested territory.
 
 The response is a JSON-formmatted response that includes a success flag (true/false) and a data array containing the objects with the officer, appointment, and contact info.
 
-Status||Likely Reason
----|---|---
-200|OK|
-500|INTERNAL SERVER ERROR|An invalid argument was passed to the API call or the date value was not formatted correctly
+Status Code|Likely Reason
+---|---
+200 OK|
+500 INTERNAL SERVER ERROR|An invalid argument was passed to the API call or the date value was not formatted correctly
 
 *Notes*
 * **action** This is either UPDATE or DELETE for all objects.  UPDATE indicates the person or position was changed because a new appointment was created or an existing appointment was changed.  DELETE indicates the position or person are no longer associated by an appointment record. 
@@ -45,7 +45,7 @@ Status||Likely Reason
 Retrieve the list of persons and positions that have had updated appointments since 3/01/2016 for territory with ID = 55.
 
 _Request_
->GET https://omsapi.fake.url/mvc/api/oms/ext/notesDispoExport/2016-03-01/55
+>GET mvc/api/oms/ext/notesDispoExport/2016-03-01/55
 
 _Response_
 ```json

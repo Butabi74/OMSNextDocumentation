@@ -1,9 +1,9 @@
-[API](#api) [Parameters](#parameters) [Response](#response) [Example](#example)
+[Request](#request) [Parameters](#parameters) [Response](#response) [Returns](#returns) [Example](#example)
 # notesDispoExport
 This function provides a list of officer records whose appointments have changed between the specified dates including officers who have been commissioned (new appointment), transferred (end one appointment and start another), and retired/case closed/PTG (end appointment).  Data includes basic person, officer, appointment, and contact info.
 
 ---
-## API
+## Request
 _Required Headers_
 >Accept: application/json  
 Authorization: Basic xyz...
@@ -33,12 +33,17 @@ Status Code|Likely Reason
 200 OK|
 500 INTERNAL SERVER ERROR|An invalid argument was passed to the API call or the date value was not formatted correctly
 
-*Notes*
+---
+## Returns
+An array of objects with the following fields to note:
+
 * **action** This is either UPDATE or DELETE for all objects.  UPDATE indicates the person or position was changed because a new appointment was created or an existing appointment was changed.  DELETE indicates the position or person are no longer associated by an appointment record. 
 * **id** This is just a unique field for the result set and is NOT guaranteed to be the same value for each call.
 * **fkPerson** The unique person ID within the system.  This will be consistent across all calls to the API.
 * **fkPosition** The unique unit (positon) ID within the system.  This will be consistent across all calls to the API.
 * **fkAppointment** The unique appointment ID within the system.  This will be consistent across all calls to the API.
+
+There are other fields than the ones listed here, but these warranted further explanation regarding their use for the end user.  Please see the [example](#example) below for the full list of returned fields.
 
 ---
 ## Example

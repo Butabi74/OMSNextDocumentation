@@ -1,9 +1,9 @@
-[API](#api) [Parameters](#parameters) [Response](#response) [Example](#example)
+[Request](#request) [Parameters](#parameters) [Response](#response) [Returns](#returns) [Example](#example)
 # notesCorpsDispoExport
 This function provides a list of unit (ministry and location) records where the contact info and/or appointed officers have changed between the specified dates.
 
 ---
-## API
+## Request
 _Required Headers_
 >Accept: application/json  
 Authorization: Basic xyz...
@@ -32,6 +32,15 @@ Status Code|Likely Reason
 ---|---
 200 OK|
 500 INTERNAL SERVER ERROR|An invalid argument was passed to the API call or the date value was not formatted correctly
+
+---
+## Returns
+An array of objects with the following fields to note:
+
+* **action** This is either UPDATE or DELETE for all objects.  UPDATE indicates the unit's contact entity (address or phone) data was changed.  DELETE indicates the unit's contact entity (address or phone) was deleted or set hidden. 
+* **id** This is just a unique field for the result set and is NOT guaranteed to be the same value for each call.
+
+There are other fields than the ones listed here, but these warranted further explanation regarding their use for the end user.  Please see the [example](#example) below for the full list of returned fields.
 
 ---
 ## Example
